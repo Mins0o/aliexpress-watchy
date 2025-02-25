@@ -4,7 +4,7 @@
 //Weather Settings
 #define CITY_ID "1796231" //New York City https://openweathermap.org/current#cityid
 #define OPENWEATHERMAP_APIKEY "0d1949854101140caad159dc9a23ca86" //use your own API key :)
-#define OPENWEATHERMAP_URL "http://api.openweathermap.org/data/2.5/weather?id=" //open weather api
+#define OPENWEATHERMAP_URL "http://api.openweathermap.org/data/2.5/weather?id={cityID}&units={units}&apiKey={apiKey}&lang={lang}" //open weather api
 #define TEMP_UNIT "metric" //metric = Celsius , imperial = Fahrenheit
 #define TEMP_LANG "en"
 #define WEATHER_UPDATE_INTERVAL 30 //must be greater than 5, measured in minutes
@@ -14,15 +14,14 @@
 #define DST_OFFSET_SEC 3600
 
 watchySettings settings{
-    CITY_ID,
-    OPENWEATHERMAP_APIKEY,
-    OPENWEATHERMAP_URL,
-    TEMP_UNIT,
-    TEMP_LANG,
-    WEATHER_UPDATE_INTERVAL,
-    NTP_SERVER,
-    GMT_OFFSET_SEC,
-    DST_OFFSET_SEC
+    .cityID = CITY_ID,
+    .weatherAPIKey = OPENWEATHERMAP_APIKEY,
+    .weatherURL = OPENWEATHERMAP_URL,
+    .weatherUnit = TEMP_UNIT,
+    .weatherLang = TEMP_LANG,
+    .weatherUpdateInterval = WEATHER_UPDATE_INTERVAL,
+    .ntpServer = NTP_SERVER,
+    .gmtOffset = GMT_OFFSET_SEC
 };
 
 #endif
